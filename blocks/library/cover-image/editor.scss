@@ -22,4 +22,16 @@
 	&.components-placeholder h2 {
 		color: inherit;
 	}
+
+	&.has-left-content {
+		.block-editable__inline-toolbar{
+			justify-content: flex-start;
+		}
+	}
+
+	&.has-right-content {
+		.block-editable__inline-toolbar{
+			justify-content: flex-end;
+		}
+	}
 }
