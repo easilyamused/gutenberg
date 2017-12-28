@@ -1,17 +1,20 @@
 .blocks-gallery-image {
 	position: relative;
 
+	.block-editable__inline-toolbar {
+		margin-top: -1em;
+	}
+
 	&.is-selected {
 		outline: 4px solid $blue-medium-500;
-		outline-offset: -4px;
 	}
 }
 
 .blocks-gallery-image__inline-menu {
 	padding: 2px;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: -3px;
+	right: -3px;
 	background-color: $blue-medium-500;
 	display: inline-flex;
 	z-index: z-index( '.blocks-gallery-image__inline-menu' );
