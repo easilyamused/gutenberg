@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { Placeholder, Toolbar, Dashicon, DropZone } from '@wordpress/components';
+import { Dashicon, DropZone, FormFileUpload, Placeholder, Toolbar } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 import { mediaUpload } from '@wordpress/utils';
@@ -91,6 +91,8 @@ registerBlockType( 'core/cover-image', {
 		const toggleParallax = () => setAttributes( { hasParallax: ! hasParallax } );
 		const setDimRatio = ( ratio ) => setAttributes( { dimRatio: ratio } );
 		const dropFiles = ( files ) => mediaUpload( files, setAttributes );
+		const uploadFromFiles = ( event ) => mediaUpload( event.target.files, setAttributes );
+
 		const style = url ?
 			{ backgroundImage: `url(${ url })` } :
 			undefined;
@@ -169,6 +171,14 @@ registerBlockType( 'core/cover-image', {
 					<DropZone
 						onFilesDrop={ dropFiles }
 					/>
+					<FormFileUpload
+						isLarge
+						className="wp-block-image__upload-button"
+						onChange={ uploadFromFiles }
+						accept="image/*"
+					>
+						{ __( 'Upload' ) }
+					</FormFileUpload>
 					<MediaUploadButton
 						buttonProps={ uploadButtonProps }
 						onSelect={ onSelectImage }
